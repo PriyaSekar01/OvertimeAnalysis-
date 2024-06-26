@@ -9,55 +9,59 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
 @Entity
-@Table(name = "overtime_analysis", schema = "public")
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "overtime_analysis")
 public class OvertimeAnalysis {
 
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 
-	    @Column(name = "Job Code")
+	    @Column(name = "job_code")
 	    private String jobCode;
 
-	    @Column(name = "Job Name")
+	    @Column(name = "job_name")
 	    private String jobName;
 
-	    @Column(name = "Phase Code")
+	    @Column(name = "phase_code")
 	    private String phaseCode;
 
-	    @Column(name = "Phase Name")
+	    @Column(name = "phase_name")
 	    private String phaseName;
 
-	    @Column(name = "Project Code")
+	    @Column(name = "project_code")
 	    private String projectCode;
 
-	    @Column(name = "Project Name")
+	    @Column(name = "project_name")
 	    private String projectName;
 
-	    @Column(name = "Estimated-Hours")
+	    @Column(name = "estimated_hours")
 	    private String estimatedHours;
 
-	    @Column(name = "Status")
+	    @Column(name = "status")
 	    private String status;
 
-	    @Column(name = "User ID")
+	    @Column(name = "user_id")
 	    private Integer userId;
 
-	    @Column(name = "User Name")
+	    @Column(name = "user_name")
 	    private String userName;
 
-	    @Column(name = "attendance-date")
+	    @Column(name = "attendance_date")
 	    private String attendanceDate;
 
-	    @Column(name = "Job Hours")
+	    @Column(name = "job_hours")
 	    private String jobHours;
 
-	    @Column(name = "Job Count")
+	    @Column(name = "job_count")
 	    private Float jobCount;
 
 	    @Column(name = "ot1")
@@ -66,76 +70,76 @@ public class OvertimeAnalysis {
 	    @Column(name = "ot2")
 	    private String ot2;
 
-	    @Column(name = "Clocked Hours")
+	    @Column(name = "clocked_hours")
 	    private Float clockedHours;
 
-	    @Column(name = "Overtime_Hours")
+	    @Column(name = "overtime_hours")
 	    private Float overtimeHours;
 
-	    @Column(name = "department-name")
+	    @Column(name = "department_name")
 	    private String departmentName;
 
 	    @Column(name = "designation")
 	    private String designation;
 
-	    @Column(name = "designation-name")
+	    @Column(name = "designation_name")
 	    private String designationName;
 
-	    @Column(name = "organization-name")
+	    @Column(name = "organization_name")
 	    private String organizationName;
 
-	    @Column(name = "grade-name")
+	    @Column(name = "grade_name")
 	    private String gradeName;
 
-	    @Column(name = "section-name")
+	    @Column(name = "section_name")
 	    private String sectionName;
 
-	    @Column(name = "category-name")
+	    @Column(name = "category_name")
 	    private String categoryName;
 
-	    @Column(name = "branch-name")
+	    @Column(name = "branch_name")
 	    private String branchName;
 
-	    @Column(name = "Cost Per Hour")
+	    @Column(name = "cost_per_hour")
 	    private Float costPerHour;
 
-	    @Column(name = "Cost Incurred")
+	    @Column(name = "cost_incurred")
 	    private Float costIncurred;
 
-	    @Column(name = "ProjectID")
+	    @Column(name = "project_id")
 	    private String projectId;
 
-	    @Column(name = "max-end-date")
+	    @Column(name = "max_end_date")
 	    private LocalDate maxEndDate;
 
-	    @Column(name = "Project Status")
+	    @Column(name = "project_status")
 	    private String projectStatus;
 
-	    @Column(name = "HasProjectStarted")
+	    @Column(name = "has_project_started")
 	    private String hasProjectStarted;
 
-	    @Column(name = "Active Project")
+	    @Column(name = "active_project")
 	    private Float activeProject;
 
-	    @Column(name = "Created Datetime")
+	    @Column(name = "created_date_time")
 	    private LocalDateTime createdDatetime;
 
-	    @Column(name = "Start Date Time")
+	    @Column(name = "start_date_time")
 	    private LocalDateTime startDateTime;
 
-	    @Column(name = "End Date Time")
+	    @Column(name = "end_date_time")
 	    private LocalDateTime endDateTime;
 
-	    @Column(name = "ProcessDate")
+	    @Column(name = "process_date")
 	    private String processDate;
 
-	    @Column(name = "FHSHS")
+	    @Column(name = "fshhs")
 	    private String fhshs;
 
-	    @Column(name = "Day")
+	    @Column(name = "day")
 	    private String day;
 
-	    @Column(name = "Overtime-Percent")
+	    @Column(name = "overtime_percent")
 	    private String overtimePercent;
 
     // Getters and setters
