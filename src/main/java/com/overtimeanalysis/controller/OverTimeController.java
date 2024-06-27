@@ -1,14 +1,16 @@
 package com.overtimeanalysis.controller;
 
-import java.text.ParseException;
 import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.overtimeanalysis.dto.OvertimeByDays;
 import com.overtimeanalysis.dto.OvertimeMetrics;
 import com.overtimeanalysis.entity.OvertimeAnalysis;
 import com.overtimeanalysis.service.OvertimeService;
@@ -28,19 +30,45 @@ public class OvertimeController {
 	}
 
 	@GetMapping("/total-overtime-hours")
-	public Float getTotalOvertimeHours() {
-		return service.getTotalOvertimeHours();
+	public ResponseEntity<Float> getTotalOvertimeHours() {
+		try {
+			Float totalOvertimeHours = service.getTotalOvertimeHours();
+			return new ResponseEntity<>(totalOvertimeHours, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
-	@GetMapping("/total-employees-with-overtime")
-	public Long getTotalEmployeesWithOvertime() {
-		return service.getTotalEmployeesWithOvertime();
+	@GetMapping("/total-employees-overtime")
+	public ResponseEntity<Long> getTotalEmployeesWithOvertime() {
+		try {
+			Long totalEmployees = service.getTotalEmployeesWithOvertime();
+			return new ResponseEntity<>(totalEmployees, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@GetMapping("/metrics")
-	public OvertimeMetrics getOvertimeMetrics(@RequestParam("startDate") String startDate,
+	public ResponseEntity<OvertimeMetrics> getOvertimeMetrics(@RequestParam("startDate") String startDate,
 			@RequestParam("endDate") String endDate) {
-		return service.getOvertimeMetrics(startDate, endDate);
+		try {
+			OvertimeMetrics metrics = service.getOvertimeMetrics(startDate, endDate);
+			return new ResponseEntity<>(metrics, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/overtimeByDays")
+	public ResponseEntity<OvertimeByDays> getOvertimeByDays(@RequestParam("startDate") String startDate,
+			@RequestParam("endDate") String endDate) {
+		try {
+			OvertimeByDays overtimeByDays = service.getOvertimeByDays(startDate, endDate);
+			return new ResponseEntity<>(overtimeByDays, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 }
